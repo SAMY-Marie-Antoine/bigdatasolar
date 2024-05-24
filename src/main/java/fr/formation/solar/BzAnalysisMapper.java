@@ -26,6 +26,7 @@ public class BzAnalysisMapper extends MapReduceBase implements Mapper<LongWritab
                 BigDecimal limiteHaute = new BigDecimal("-20");
                 if(ComparableUtils.is(data.getBz()).lessThanOrEqualTo(limiteHaute)){
                     output.collect(new Text(data.getDate()),new DoubleWritable(data.getBz().doubleValue()));
+                    //output.collect(new Text("mockoutput"),new DoubleWritable(1.1));
                 }
     }
     
@@ -40,4 +41,3 @@ public class BzAnalysisMapper extends MapReduceBase implements Mapper<LongWritab
         return solarData;
     }
 }
-

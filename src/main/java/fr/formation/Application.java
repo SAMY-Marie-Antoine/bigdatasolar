@@ -1,8 +1,8 @@
 package fr.formation;
 
-import java.math.BigDecimal;
 
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.FileInputFormat;
 import org.apache.hadoop.mapred.FileOutputFormat;
@@ -12,7 +12,7 @@ import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
 
 import fr.formation.solar.BzAnalysisMapper;
-//import fr.formation.solar.BzAnalysisReducer;
+import fr.formation.solar.BzAnalysisReducer;
 
 public class Application {
 
@@ -23,7 +23,7 @@ public class Application {
         conf.setJobName("Repérage évenements où Bz < -20 nT");
         //valeurs de sorties 
         conf.setOutputKeyClass(Text.class);
-        conf.setOutputValueClass(BigDecimal.class);
+        conf.setOutputValueClass(DoubleWritable.class);
         //mapper et reducer
         conf.setMapperClass(BzAnalysisMapper.class);
         //conf.setReducerClass(BzAnalysisReducer.class);
