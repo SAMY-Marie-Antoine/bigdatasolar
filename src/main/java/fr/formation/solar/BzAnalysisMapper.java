@@ -24,9 +24,8 @@ public class BzAnalysisMapper extends MapReduceBase implements Mapper<LongWritab
                 // see if data matches condition
                 SolarWindDataEntry data = this.parseSolar(value.toString());
                 BigDecimal limiteHaute = new BigDecimal("-20");
-                if(ComparableUtils.is(data.getBz()).lessThanOrEqualTo(limiteHaute)){
+                if(!(data.getBz()==null) && !data.getBz().equals(new BigDecimal("-99999.0")) && ComparableUtils.is(data.getBz()).lessThanOrEqualTo(limiteHaute)){
                     output.collect(new Text(data.getDate()),new DoubleWritable(data.getBz().doubleValue()));
-                    //output.collect(new Text("mockoutput"),new DoubleWritable(1.1));
                 }
     }
     
