@@ -11,24 +11,25 @@ import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
 
-import fr.formation.kiruna.KirunaAnalysisMapper;
-import fr.formation.solar.BzAnalysisMapper;
-import fr.formation.solar.BzAnalysisReducer;
+//import fr.formation.kiruna.KirunaAnalysisMapper;
+//import fr.formation.solar.BzAnalysisMapper;
+//import fr.formation.solar.BzAnalysisReducer;
+import fr.formation.solar.BzSecondAnalysisMapper;
 
 public class Application {
 
-	
 
 	public static void main(String[] args) throws Exception {
 		JobConf conf = new JobConf(Application.class);
-        conf.setJobName("Repérage évenements où DeltaX >= 1000 nT");
+        conf.setJobName("Retraitement Satellite Data");
         //valeurs de sorties 
         conf.setOutputKeyClass(Text.class);
         conf.setOutputValueClass(DoubleWritable.class);
         //mapper et reducer
         //conf.setMapperClass(BzAnalysisMapper.class);
         //conf.setReducerClass(BzAnalysisReducer.class);
-        conf.setMapperClass(KirunaAnalysisMapper.class);
+        //conf.setMapperClass(KirunaAnalysisMapper.class);
+        conf.setMapperClass(BzSecondAnalysisMapper.class);
         // input
         conf.setInputFormat(TextInputFormat.class);
         conf.setOutputFormat(TextOutputFormat.class);

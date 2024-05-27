@@ -33,10 +33,18 @@ public class BzAnalysisMapper extends MapReduceBase implements Mapper<LongWritab
         String[] values = data.split(";");
         SolarWindDataEntry solarData = new SolarWindDataEntry();
         solarData.setDate(values[0]);
-        if(values[1].length() != 0){solarData.setSpeed(new BigDecimal(values[1]));}
-        if(values[2].length() != 0){solarData.setDensity(new BigDecimal(values[2]));}
-        if(values[3].length() != 0){solarData.setBt(new BigDecimal(values[3]));}
-        if(values[4].length() != 0){solarData.setBz(new BigDecimal(values[4]));}
+        if(values.length >= 2){
+            if(values[1].length() != 0){solarData.setSpeed(new BigDecimal(values[1]));}
+        }
+        if(values.length >= 3){
+            if(values[2].length() != 0){solarData.setDensity(new BigDecimal(values[2]));}
+        }
+        if(values.length >= 4){
+            if(values[3].length() != 0){solarData.setBt(new BigDecimal(values[3]));}
+        }
+        if(values.length >= 5){
+            if(values[4].length() != 0){solarData.setBz(new BigDecimal(values[4]));}
+        }
         return solarData;
     }
 }

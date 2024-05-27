@@ -1,10 +1,14 @@
 {
 	"folders": [
 		{
-			"path": "src"
+			"path": "../datacollection"
+		},
+		{
+			"path": "../api-projet-bigdata-insert"
 		}
 	],
 	"settings": {
-		"java.compile.nullAnalysis.mode": "automatic"
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.configuration.updateBuildConfiguration": "automatic"
 	}
 }
