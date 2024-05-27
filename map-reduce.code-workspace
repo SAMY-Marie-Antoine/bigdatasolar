@@ -2,10 +2,6 @@
 	"folders": [
 		{
 			"path": "src"
-		},
-		{
-			"name": "datacollection",
-			"path": "../datacollection"
 		}
 	],
 	"settings": {

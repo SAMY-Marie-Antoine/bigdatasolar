@@ -22,9 +22,9 @@ public class KirunaAnalysisMapper extends MapReduceBase implements Mapper<LongWr
         }
 
         KirunaDataEntry data = this.parseKiruna(value.toString());
-        BigDecimal limiteHaute = new BigDecimal("9000");
-        BigDecimal limiteBasse = new BigDecimal("11000");
-        if(!(data.getX()==null) && ComparableUtils.is(data.getX()).between(limiteBasse,limiteHaute)){
+        BigDecimal limite1 = new BigDecimal("9000");
+        BigDecimal limite2 = new BigDecimal("11000");
+        if(!(data.getX()==null) && !data.getX().equals(new BigDecimal("99999.0")) && !data.getX().equals(new BigDecimal("-99999.0")) &&!ComparableUtils.is(data.getX()).between(limite1,limite2)){
             output.collect(new Text(data.getDate()),new DoubleWritable(data.getX().doubleValue()));
         }
 
